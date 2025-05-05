@@ -108,7 +108,7 @@ Once the setup is complete:
 * `*.jsonl`, `*.csv`: Data files used for training (included for reproducibility).
 * `requirements.txt`: Python dependencies.
 * `README.md`: This file.
-* `sample_conversations/` (Recommended): Folder containing audio/transcript samples.
+* `sample_conversations/`: Folder containing audio samples.
 
 ## Excluded Files (Not in Repo)
 
