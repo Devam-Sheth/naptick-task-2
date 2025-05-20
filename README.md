@@ -34,8 +34,7 @@ Follow these steps carefully to set up and run the voice agent on another device
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [Link to Your GitHub Repository]
-    cd [repository-folder-name]
+    git clone https://github.com/Devam-Sheth/naptick-task-2
     ```
 
 2.  **Create and Activate Virtual Environment (Highly Recommended):**
