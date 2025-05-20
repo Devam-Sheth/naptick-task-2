@@ -101,7 +101,7 @@ Once the setup is complete:
 ## Fine-tuning Details
 
 * **Base Model:** `EleutherAI/pythia-410m`.
-* **Training Dataset:** The fine-tuning process utilized a custom dataset of approximately **520 conversational examples specifically focused on sleep coaching scenarios**. This dataset was primarily generated using **Google AI Studio** to create diverse and relevant dialogues for adapting the model to the sleep domain. *(If you also combined this with `sleep_coach_multichat_1000.jsonl` or `evolving_advice_200.jsonl`, briefly mention that too, e.g., "This was further combined with programmatically generated conversational flows to ensure coverage of basic interactions.")*
+* **Training Dataset:** The fine-tuning process utilized a custom dataset of approximately **520 conversational examples specifically focused on sleep coaching scenarios**. This dataset was primarily generated using **Google AI Studio** to create diverse and relevant dialogues for adapting the model to the sleep domain. *(If you also combined this with `dataset1.jsonl` or `dataset2.jsonl`, briefly mention that too, e.g., "This was further combined with programmatically generated conversational flows to ensure coverage of basic interactions.")*
 * **Data Formatting:** Conversations were structured with clear roles (`user:`, `assistant:`) and end-of-sequence tokens (`<eos>`) to teach the model turn-taking and appropriate response generation.
 * **Training Process:** The fine-tuning was conducted using the script `train_model.py`, leveraging the Hugging Face `Trainer` API, with standard hyperparameters (e.g., AdamW optimizer, learning rate of 2e-5, 3 epochs).
 
@@ -116,7 +116,7 @@ Once the setup is complete:
 * `[your_dataset_name.jsonl]`: The primary JSONL file containing the ~520 conversational examples used for fine-tuning. *(Make sure to name this file correctly if you upload it).*
 * `requirements.txt`: Lists all Python dependencies required for the project.
 * `README.md`: This file.
-* `sample_conversations/`: This folder should contain the 5 audio/transcript samples demonstrating the agent's capabilities (as per challenge requirements).
+* `sampleaudio/`: This folder contain the 5 audio/transcript samples demonstrating the agent's capabilities (as per challenge requirements).
 
 ## Excluded Files (Not in GitHub Repository)
 
