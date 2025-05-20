@@ -103,7 +103,7 @@ Once the setup is complete:
 * **Base Model:** `EleutherAI/pythia-410m`.
 * **Training Dataset:** The fine-tuning process utilized a custom dataset of approximately **520 conversational examples specifically focused on sleep coaching scenarios**. This dataset was primarily generated using **Google AI Studio** to create diverse and relevant dialogues for adapting the model to the sleep domain. *(If you also combined this with `dataset1.jsonl` or `dataset2.jsonl`, briefly mention that too, e.g., "This was further combined with programmatically generated conversational flows to ensure coverage of basic interactions.")*
 * **Data Formatting:** Conversations were structured with clear roles (`user:`, `assistant:`) and end-of-sequence tokens (`<eos>`) to teach the model turn-taking and appropriate response generation.
-* **Training Process:** The fine-tuning was conducted using the script `train_model.py`, leveraging the Hugging Face `Trainer` API, with standard hyperparameters (e.g., AdamW optimizer, learning rate of 2e-5, 3 epochs).
+* **Training Process:** The fine-tuning was conducted using the script `train_model.py`, leveraging the Hugging Face `Trainer` API, with standard hyperparameters (e.g., AdamW optimizer, learning rate of 2e-5, 1.5 epochs).
 
 ## File Structure (Key Files in Repository)
 
