@@ -2,22 +2,15 @@
 
 ## Task Description
 
-The goal was to create a voice-to-voice intelligent agent using a simulated voice system and a fine-tuned language model. The agent is adapted for sleep-domain conversations, understands related queries, and provides relevant multi-turn responses.
+The goal was to create a voice-to-voice intelligent agent using a voice-capable model (or simulated system), fine-tuned or adapted for sleep-domain conversations. The agent should understand queries around sleep health and provide improved, relevant responses based on the fine-tuning.
 
 ## Features Implemented
 
 * **Voice Input:** Captures user audio via microphone (`audio_input.py`).
 * **Transcription:** Converts spoken audio to text using `faster-whisper` (`transcribe.py`).
-* **Fine-tuned Language Model:** Fine-tuned `EleutherAI/pythia-410m` on combined sleep conversation datasets.
-* **Multi-turn Conversation:** Manages conversation history for contextual responses (`main.py`, `inference_sleep_ai.py`).
+* **Fine-tuned Language Model:** Fine-tuned EleutherAI/pythia-410m on a sleep-focused conversational dataset (`train_model.py`). The model is hosted on Hugging Face Hub: [devam-sheth-bits/sleep-ai-combined-evolving](https://huggingface.co/devam-sheth-bits/sleep-ai-evolving) 
+* **Multi-turn Conversation:** Manages conversation history to provide contextually relevant responses (`main.py`, `inference_sleep_ai.py`).
 * **Text-to-Speech Output:** Speaks the assistant's responses using `pyttsx3` (`tts_output.py`).
-* **Hugging Face Hub Integration:** The fine-tuned model is loaded directly from Hugging Face Hub.
-
-## Fine-tuned Model on Hub
-
-The core fine-tuned language model used by this agent is hosted on Hugging Face Hub and **will be downloaded automatically** when the application runs for the first time.
-
-* **Model ID:** [`devam-sheth-bits/enhanced-sleep-ai`](https://huggingface.co/devam-sheth-bits/enhanced-sleep-ai)
 
 ## Technology Stack
 
@@ -28,99 +21,41 @@ The core fine-tuned language model used by this agent is hosted on Hugging Face 
 * Audio I/O: `sounddevice`, `scipy`
 * TTS: `pyttsx3`
 
-## Setup and Installation Instructions (For Running the Agent)
+## Setup and Installation
 
-Follow these steps carefully to set up and run the voice agent on another device:
-
-1.  **Clone the Repository:**
+1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Devam-Sheth/naptick-task-2
+    git clone [Link to GitHub Repo]
+    cd [repository-folder-name]
     ```
-
-2.  **Create and Activate Virtual Environment (Highly Recommended):**
+2.  **Create/Activate Environment (Recommended):**
     ```bash
-    # Create environment (e.g., named .venv)
-    python -m venv .venv
-
-    # Activate environment
-    # Windows (PowerShell/CMD):
-    .\.venv\Scripts\activate
-    # macOS/Linux (Bash/Zsh):
-    # source .venv/bin/activate
+    python -m venv venv
+    # Windows
+    .\venv\Scripts\activate
+    # macOS/Linux
+    # source venv/bin/activate
     ```
-    *(Note: The `.venv` directory should NOT be committed to Git).*
-
-3.  **Install Python Dependencies:**
-    Install all required Python libraries using the provided `requirements.txt` file:
+3.  **Install Dependencies:**
     ```bash
-    # Ensure pip is up-to-date within the venv
+    # Ensure pip is up-to-date
     python -m pip install --upgrade pip
     # Install requirements
     pip install -r requirements.txt
     ```
-    *(Note: You need to create the `requirements.txt` file in your repository using `pip freeze > requirements.txt` from your activated environment after installing everything).*
-
-4.  **Install System Dependencies (If Necessary):**
-    * **`sounddevice`:** May require system libraries like `portaudio`.
-        * On Debian/Ubuntu Linux: `sudo apt-get update && sudo apt-get install libportaudio2`
-        * On macOS (using Homebrew): `brew install portaudio`
-        * On Windows: Usually works out-of-the-box or with specific audio driver installations.
-    * **`pyttsx3`:** May require OS-level TTS engines.
-        * On Windows: Uses SAPI5 (usually built-in).
-        * On macOS: Uses NSSpeechSynthesizer (built-in).
-        * On Linux: May require `espeak` (`sudo apt-get update && sudo apt-get install espeak`).
-    * *Consult the documentation for `sounddevice` and `pyttsx3` if audio input or output fails.*
-
-5.  **Hugging Face Login (Required):**
-    You need to log in to your Hugging Face account via the terminal. This allows the application to download the fine-tuned model and associated tokenizer from the Hub.
+    *(Note: You need to create a `requirements.txt` file listing all dependencies. You can generate one using `pip freeze > requirements.txt` after installing everything in your environment).*
+4.  **Hugging Face Login:** Log in to access the fine-tuned model (if private) and potentially push models if you modify the training script.
     ```bash
     huggingface-cli login
+    # or C:\path\to\python310\Scripts\huggingface-cli.exe login
     ```
-    Enter your Hugging Face User Access Token when prompted (you need one with at least `read` permissions).
+    You'll need a Hugging Face account and a User Access Token with `write` permissions.
 
 ## Running the Agent
 
-Once the setup is complete:
+Execute the main script from the terminal:
 
-1.  **Ensure your microphone and speakers are configured correctly.**
-2.  **Run the main script** from your terminal (make sure your virtual environment is activated):
-    ```bash
-    python main.py
-    ```
-    *(Or use `py -3.10 main.py` if you need to specify the interpreter)*.
-3.  **First Run Note:** The first time you run it, the script will need to download:
-    * The fine-tuned LLM (`devam-sheth-bits/enhanced-sleep-ai`).
-    * The `faster-whisper` model (`base` model).
-    * The embedding model used by `transcribe.py` if applicable (though `faster-whisper` handles this internally).
-    This might take several minutes depending on your internet speed. Subsequent runs will use the cached models.
-4.  **Interact:** The assistant will greet you. Speak clearly when prompted (`🎙️ Recording... Speak now.`). Use exit phrases like "goodbye" or "exit" to end the conversation.
-
-## File Structure (Included in Repo)
-
-* `main.py`: Main application loop.
-* `inference_sleep_ai.py`: Loads the fine-tuned model *from Hub* and generates responses.
-* `audio_input.py`: Handles microphone recording.
-* `transcribe.py`: Transcribes audio using Faster Whisper.
-* `tts_output.py`: Handles text-to-speech.
-* `train_model.py`: Script used for fine-tuning (provided for reference).
-* `multichat_dataset.py`: Script used for generating initial data (provided for reference).
-* `*.jsonl`: Data files used for training (included for reproducibility).
-* `requirements.txt`: Python dependencies.
-* `README.md`: This file.
-* `sample_conversations/`: Folder containing audio samples.
-
-## Excluded Files (Not in Repo)
-
-* `.venv/`: Python virtual environment files.
-* `training_results*/`: Checkpoints saved locally during training.
-* `*_final/`: Final model saved locally after training.
-* `__pycache__/`: Python bytecode cache directories.
-* `*.wav`: Temporary audio files generated during runtime (like `temp_user_input.wav`).
-    *(It's recommended to use a `.gitignore` file to automatically exclude these).*
-
-## Limitations & Future Work
-
-* The model's ability to provide a advice is dependent on the quality and quantity of the `dataset1.jsonl` data used. More sophisticated data generation and potentially larger models would improve this.
-* Relies on external library quality for Transcription/TTS.
-* CPU inference can be slow for response generation. GPU would improve speed.
-* Error handling can be further enhanced.
+```bash
+python main.py
+# Or specify Python version if needed:
+# py -3.10 main.py
