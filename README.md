@@ -17,7 +17,7 @@ The goal was to create a voice-to-voice intelligent agent using a simulated voic
 
 The core fine-tuned language model used by this agent is hosted on Hugging Face Hub and **will be downloaded automatically** when the application runs for the first time.
 
-* **Model ID:** [`devam-sheth-bits/sleep-ai-evolving`](https://huggingface.co/devam-sheth-bits/sleep-ai-evolving)
+* **Model ID:** [`devam-sheth-bits/enhanced-sleep-ai`](https://huggingface.co/devam-sheth-bits/enhanced-sleep-ai)
 
 ## Technology Stack
 
@@ -90,8 +90,8 @@ Once the setup is complete:
     ```
     *(Or use `py -3.10 main.py` if you need to specify the interpreter)*.
 3.  **First Run Note:** The first time you run it, the script will need to download:
-    * The fine-tuned LLM (`devam-sheth-bits/sleep-ai-evolving` ~900MB+).
-    * The `faster-whisper` model (`base` model, ~140MB).
+    * The fine-tuned LLM (`devam-sheth-bits/enhanced-sleep-ai`).
+    * The `faster-whisper` model (`base` model).
     * The embedding model used by `transcribe.py` if applicable (though `faster-whisper` handles this internally).
     This might take several minutes depending on your internet speed. Subsequent runs will use the cached models.
 4.  **Interact:** The assistant will greet you. Speak clearly when prompted (`🎙️ Recording... Speak now.`). Use exit phrases like "goodbye" or "exit" to end the conversation.
@@ -105,7 +105,7 @@ Once the setup is complete:
 * `tts_output.py`: Handles text-to-speech.
 * `train_model.py`: Script used for fine-tuning (provided for reference).
 * `multichat_dataset.py`: Script used for generating initial data (provided for reference).
-* `*.jsonl`, `*.csv`: Data files used for training (included for reproducibility).
+* `*.jsonl`: Data files used for training (included for reproducibility).
 * `requirements.txt`: Python dependencies.
 * `README.md`: This file.
 * `sample_conversations/`: Folder containing audio samples.
@@ -121,7 +121,7 @@ Once the setup is complete:
 
 ## Limitations & Future Work
 
-* The model's ability to provide truly "evolving" advice is dependent on the quality and quantity of the `evolving_advice_200.jsonl` data used. More sophisticated data generation and potentially larger models would improve this.
+* The model's ability to provide a advice is dependent on the quality and quantity of the `dataset1.jsonl` data used. More sophisticated data generation and potentially larger models would improve this.
 * Relies on external library quality for Transcription/TTS.
 * CPU inference can be slow for response generation. GPU would improve speed.
 * Error handling can be further enhanced.
