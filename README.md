@@ -37,7 +37,7 @@ To set up and run this project locally, please follow these steps:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/Devam-Sheth/naptick-task-2.git](https://github.com/Devam-Sheth/naptick-task-2.git)
+    git clone (https://github.com/Devam-Sheth/naptick-task-2.git)
     cd naptick-task-2
     ```
 
