@@ -51,7 +51,7 @@ To set up and run this project locally, please follow these steps:
     ```
 
 3.  **Install Python Dependencies:**
-    Ensure `pip` is up-to-date and then install the required packages from `requirements.txt`,`requirements1.txt`,`requirements2.txt` (to eradicate the issue of 'resolution-too-deep' as there are around 250 packages). And if you face any issue while run the below codes, don't worry as it arises due to version variations, but in the end you will get the correct output.
+    Ensure `pip` is up-to-date and then install the required packages from `requirements.txt`,`requirements1.txt`,`requirements2.txt` (to eradicate the issue of 'resolution-too-deep' as there are around 250 packages). And if you face any issue while running the below codes, don't worry as it arises due to version variations and unwanted packages, but in the end you will get the correct output.
     ```bash
     python -m pip install --upgrade pip
     pip install -r requirements.txt  
