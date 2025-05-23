@@ -23,7 +23,6 @@ kornia_rs==0.1.8
 kubernetes==32.0.1
 lazy_loader==0.4
 librosa==0.10.0
-llvmlite==0.42.0
 Markdown==3.8
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
