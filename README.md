@@ -37,7 +37,7 @@ To set up and run this project locally, please follow these steps:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone (https://github.com/Devam-Sheth/naptick-task-2.git)
+    git clone https://github.com/Devam-Sheth/naptick-task-2.git
     cd naptick-task-2
     ```
 
@@ -56,7 +56,6 @@ To set up and run this project locally, please follow these steps:
     python -m pip install --upgrade pip
     pip install -r requirements.txt
     ```
-    *(Note: The `requirements.txt` file should be present in the repository, listing all necessary Python packages.)*
 
 4.  **Install System Dependencies (If Necessary):**
     * **`sounddevice`:** This library interfaces with your system's audio capabilities and might require `portaudio`.
