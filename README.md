@@ -51,10 +51,10 @@ To set up and run this project locally, please follow these steps:
     ```
 
 3.  **Install Python Dependencies:**
-    Ensure `pip` is up-to-date and then install the required packages from `requirements.txt`.
+    Ensure `pip` is up-to-date and then install the required packages from `requirements.txt`,`requirements1.txt`,`requirements2.txt` (to eradicate the issue of 'resolution-too-deep' as there are around 250 packages).
     ```bash
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    pip install -r requirements.txt requirements1.txt requirements2.txt
     ```
 
 4.  **Install System Dependencies (If Necessary):**
@@ -111,7 +111,7 @@ Once the setup is complete:
 * `transcribe.py`: Handles speech-to-text using `faster-whisper`.
 * `tts_output.py`: Provides text-to-speech functionality using `pyttsx3`.
 * `[dataset1.jsonl,dataset2.jsonl]`: The JSONL files together containing the ~520 conversational examples used for fine-tuning.
-* `requirements.txt`: Lists all Python dependencies required for the project.
+* `requirements.txt`,`requirements1.txt`,`requirements2.txt`: Lists all Python dependencies required for the project.
 * `README.md`: This file.
 * `audiosamples/`: This folder contain the 5 audio/transcript samples demonstrating the agent's capabilities (as per challenge requirements).
 
