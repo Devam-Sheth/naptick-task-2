@@ -75,7 +75,7 @@ To set up and run this project locally, please follow these steps:
     ```bash
     huggingface-cli login
     ```
-    You will be prompted to enter a Hugging Face User Access Token. The token is present in token file in the github repository or you can paste this : `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` and type Y to add tpken as a git credential.
+    You will be prompted to enter a Hugging Face User Access Token. The token is present in token file in the github repository or you can paste this : `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` and type Y to add token as a git credential.
 
 ## Running the Agent
 
