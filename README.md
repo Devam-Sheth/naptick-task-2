@@ -85,8 +85,6 @@ Once the setup is complete:
     ```bash
     python main.py
     ```
-    *(Or `py -3.10 main.py` if you need to specify your Python 3.10 interpreter explicitly).*
-
 4.  **First Run Considerations:**
     * The first time you run `main.py`, the system will download the fine-tuned language model (`devam-sheth-bits/enhanced-sleep-ai`, approx. 900MB+) and the `faster-whisper` base model (approx. 140MB) if they are not already cached locally. This initial download process may take several minutes depending on your internet connection speed.
     * Subsequent runs will be faster as these models will be loaded from the local cache.
@@ -100,7 +98,7 @@ Once the setup is complete:
 ## Fine-tuning Details
 
 * **Base Model:** `EleutherAI/pythia-410m`.
-* **Training Dataset:** The fine-tuning process utilized a custom dataset of approximately **520 conversational examples specifically focused on sleep coaching scenarios**. This dataset was primarily generated using **Google AI Studio** to create diverse and relevant dialogues for adapting the model to the sleep domain. *(If you also combined this with `dataset1.jsonl` or `dataset2.jsonl`, briefly mention that too, e.g., "This was further combined with programmatically generated conversational flows to ensure coverage of basic interactions.")*
+* **Training Dataset:** The fine-tuning process utilized a custom dataset of approximately **520 conversational examples specifically focused on sleep coaching scenarios**. This dataset was primarily generated using **Google AI Studio** to create diverse and relevant dialogues for adapting the model to the sleep domain.
 * **Data Formatting:** Conversations were structured with clear roles (`user:`, `assistant:`) and end-of-sequence tokens (`<eos>`) to teach the model turn-taking and appropriate response generation.
 * **Training Process:** The fine-tuning was conducted using the script `train_model.py`, leveraging the Hugging Face `Trainer` API, with standard hyperparameters (e.g., AdamW optimizer, learning rate of 2e-5, 1.5 epochs).
 
@@ -112,22 +110,10 @@ Once the setup is complete:
 * `audio_input.py`: Manages recording audio from the microphone.
 * `transcribe.py`: Handles speech-to-text using `faster-whisper`.
 * `tts_output.py`: Provides text-to-speech functionality using `pyttsx3`.
-* `[your_dataset_name.jsonl]`: The primary JSONL file containing the ~520 conversational examples used for fine-tuning. *(Make sure to name this file correctly if you upload it).*
+* `[dataset1.jsonl,dataset2.jsonl]`: The JSONL files together containing the ~520 conversational examples used for fine-tuning.
 * `requirements.txt`: Lists all Python dependencies required for the project.
 * `README.md`: This file.
-* `sampleaudio/`: This folder contain the 5 audio/transcript samples demonstrating the agent's capabilities (as per challenge requirements).
-
-## Excluded Files (Not in GitHub Repository)
-
-The following are standard exclusions and are not version-controlled:
-
-* `.venv/`: Python virtual environment directory.
-* `training_results*/` (or similar): Local checkpoints saved during model training.
-* `*_final/` (or similar): Final model saved locally after training.
-* `__pycache__/`: Python bytecode cache directories.
-* `*.wav` (e.g., `temp_user_input.wav`): Temporary audio files created during runtime.
-
-*(It is recommended to use a `.gitignore` file to ensure these are not accidentally tracked).*
+* `audiosamples/`: This folder contain the 5 audio/transcript samples demonstrating the agent's capabilities (as per challenge requirements).
 
 ## Limitations and Potential Future Work
 
