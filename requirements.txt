@@ -23,7 +23,6 @@ cachetools==5.5.2
 certifi==2025.4.26
 cffi==1.17.1
 charset-normalizer==3.4.2
-chromadb==1.0.9
 clean-fid==0.1.35
 click==8.1.8
 clip-anytorch==2.6.0
